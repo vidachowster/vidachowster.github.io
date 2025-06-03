@@ -8,7 +8,7 @@
 // Model URL from Teachable Machine
 //**************************************************
 //* as before, paste your lnk below
-let URL = "paste your link here";
+let URL = "https://teachablemachine.withgoogle.com/models/PWq7IVrB5/";
 
 
 
@@ -118,35 +118,27 @@ function checkPose(prediction, video) {
         
         switch(poseNumber) {
             case '1':
-                if (time >= 0.9 && time <= 3.0 && !poseState.triggered) {
+                if (time >= 8.0 && time <= 11.0 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '2':
-                if (time >= 5.5 && time <= 7.5 && !poseState.triggered) {
+                if (time >= 12.5 && time <= 14.5 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '3':
-                if ((time >= 11.5 && time <= 13.0 && !poseState.firstWindowTriggered) ||
-                    (time >= 17.5 && time <= 19.5 && !poseState.secondWindowTriggered)) {
-                    if (time <= 13.0) {
-                        poseState.firstWindowTriggered = true;
-                    } else {
-                        poseState.secondWindowTriggered = true;
-                    }
-                    explosionActive = true;
-                    playExplosionSound();
-                    setTimeout(() => { explosionActive = false; }, 300);
+                if (time >= 15.7 && time <= 16.99 && !poseState.triggered) {
+                    triggerExplosion(poseState);
                 }
                 break;
             case '4':
-                if (time >= 15.5 && time <= 16.6 && !poseState.triggered) {
+                if (time >= 17.0 && time <= 18.6 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '5':
-                if (time >= 19.5 && !poseState.triggered) {
+                if (time >= 29.5 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
