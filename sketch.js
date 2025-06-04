@@ -18,7 +18,7 @@ let model, webcam, ctx, labelContainer, maxPredictions;
 // Dynamic pose tracking
 let poseStates = {};
 let explosionActive = false;
-let explosionSound = new Audio('explsn.mp3');
+let explosionSound = new Audio('crazy.mp3');
 
 function setModelURL(url) {
     URL = url;
