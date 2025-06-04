@@ -69,7 +69,7 @@ async function loop(timestamp) {
 }
 
 function playExplosionSound() {
-    const newSound = new Audio('explsn.mp3');
+    const newSound = new Audio('crazy.mp3');
     newSound.volume = 1.0;
     newSound.play();
 }
@@ -118,35 +118,27 @@ function checkPose(prediction, video) {
 
         switch(poseNumber) {
             case '1':
-                if (time >= 0.9 && time <= 3.0 && !poseState.triggered) {
+                if (time >= 9 && time <= 11.7 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '2':
-                if (time >= 5.5 && time <= 7.5 && !poseState.triggered) {
+                if (time >= 12.5 && time <= 15.5 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '3':
-                if ((time >= 11.5 && time <= 13.0 && !poseState.firstWindowTriggered) ||
-                    (time >= 17.5 && time <= 19.5 && !poseState.secondWindowTriggered)) {
-                    if (time <= 13.0) {
-                        poseState.firstWindowTriggered = true;
-                    } else {
-                        poseState.secondWindowTriggered = true;
-                    }
-                    explosionActive = true;
-                    playExplosionSound();
-                    setTimeout(() => { explosionActive = false; }, 300);
+                if (time >= 12.5 && time <= 13.5 && !poseState.triggered) {
+                    triggerExplosion(poseState);
                 }
                 break;
             case '4':
-                if (time >= 15.5 && time <= 16.6 && !poseState.triggered) {
+                if (time >= 17.5 && time <= 18.7 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '5':
-                if (time >= 19.5 && !poseState.triggered) {
+                if (time >= 30.0 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
