@@ -10,21 +10,25 @@
 //* as before, paste your lnk below
 let URL = "https://teachablemachine.withgoogle.com/models/egESv8Cqm/";
 
-
+let announcer = 0;
 
 
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 // Dynamic pose tracking
 let poseStates = {};
-let explosionActive = false;
-let explosionSound = new Audio('crazy.mp3');
+let soundActive = false;
+let Sound1 = new Audio('dismal.mp3');
+let Sound2 = new Audio('crazy.mp3');
+let Sound3 = new Audio('badass.mp3');
+let Sound4 = new Audio('apocalyptic.mp3');
+let Sound5 = new Audio('savage.mp3');
 
 function setModelURL(url) {
     URL = url;
     // Reset states when URL changes
     poseStates = {};
-    explosionActive = false;
+    soundActive = false;
 }
 
 /**
@@ -68,8 +72,12 @@ async function loop(timestamp) {
     window.requestAnimationFrame(loop);
 }
 
-function playExplosionSound() {
-    const newSound = new Audio('crazy.mp3');
+function playAnnouncerSound() {
+    if (announcer==1){const newSound = new Audio('dismal.mp3');}
+    else if (announcer==2){const newSound = new Audio('crazy.mp3');}
+    else if (announcer==3){const newSound = new Audio('badass.mp3');}
+    else if (announcer==4){const newSound = new Audio('apocalyptic.mp3');}
+    else if (announcer==5){const newSound = new Audio('savage.mp3');}
     newSound.volume = 1.0;
     newSound.play();
 }
@@ -89,7 +97,7 @@ async function predict() {
             checkPose(prediction[i], video);
         }
 
-        drawPose(pose, explosionActive);
+        drawPose(pose, soundActive);
     } catch (error) {
         console.error("Error in predict:", error);
     }
@@ -113,44 +121,49 @@ function checkPose(prediction, video) {
         };
     }
 
-    if (prob > 0.8 && !explosionActive) {
+    if (prob > 0.8 && !soundActive) {
         const poseState = poseStates[`pose${poseNumber}`];
 
         switch(poseNumber) {
             case '1':
                 if (time >= 9 && time <= 11.7 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+                    announcer++
+                    triggerSound(poseState);
                 }
                 break;
             case '2':
                 if (time >= 12.5 && time <= 15.5 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+                    announcer++
+                    triggerSound(poseState);
                 }
                 break;
             case '3':
                 if (time >= 12.5 && time <= 13.5 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+                    announcer++
+                    triggerSound(poseState);
                 }
                 break;
             case '4':
                 if (time >= 17.5 && time <= 18.7 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+                    announcer++
+                    triggerSound(poseState);
                 }
                 break;
             case '5':
                 if (time >= 30.0 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+                    announcer++
+                    triggerSound(poseState);
                 }
                 break;
         }
     }
 }
 
-function triggerExplosion(poseState) {
-    explosionActive = true;
+function triggerSound(poseState) {
+    soundActive = true;
     poseState.triggered = true;
-    playExplosionSound();
-    setTimeout(() => { explosionActive = false; }, 300);
+    playAnnouncerSound();
+    setTimeout(() => { soundActive = false; }, 300);
 }
 
 function drawPose(pose, explode) {
@@ -235,10 +248,10 @@ function stopInstructionVideo() {
     if (canvas) {
         canvas.remove();
     }
+    announcer = 0
     pose1Triggered = false;
     pose2Triggered = false;
-    pose3FirstWindowTriggered = false;
-    pose3SecondWindowTriggered = false;
+    pose3Triggered = false;
     pose4Triggered = false;
     pose5Triggered = false;
 }
@@ -249,5 +262,14 @@ function stopWebcam() {
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        announcer = 0
     }
+}
+
+function keyTyped() {
+  if (keyCode==80){
+    announcer++
+    playAnnouncerSound()
+  }
+  
 }
