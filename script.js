@@ -8,7 +8,7 @@
 // Model URL from Teachable Machine
 //**************************************************
 //* as before, paste your lnk below
-let URL = "https://teachablemachine.withgoogle.com/models/egESv8Cqm/";
+let URL = "https://teachablemachine.withgoogle.com/models/vYH-MyPUM/";
 
 let announcer = 0;
 
@@ -126,25 +126,25 @@ function checkPose(prediction, video) {
 
         switch(poseNumber) {
             case '1':
-                if (time >= 9 && time <= 11.7 && !poseState.triggered) {
+                if (time >= 8.6 && time <= 11.7 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '2':
-                if (time >= 12.5 && time <= 15.5 && !poseState.triggered) {
+                if (time >= 14.5 && time <= 16.5 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '3':
-                if (time >= 12.5 && time <= 13.5 && !poseState.triggered) {
+                if (time >= 16.0 && time <= 18.0 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '4':
-                if (time >= 17.5 && time <= 18.7 && !poseState.triggered) {
+                if (time >= 26.0 && time <= 28.4 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
@@ -236,7 +236,7 @@ async function playInstructionVideo() {
     if (model) {
         processFrame();
     } else {
-        console.log("https://teachablemachine.withgoogle.com/models/egESv8Cqm/");
+        console.log("https://teachablemachine.withgoogle.com/models/vYH-MyPUM/");
     }
 }
 
