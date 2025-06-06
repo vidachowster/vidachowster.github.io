@@ -78,9 +78,9 @@ function playAnnouncerSound() {
     else if (announcer==3){penger = "badass.mp3"}
     else if (announcer==4){penger = "apocalyptic.mp3"}
     else if (announcer==5){penger = "savage.mp3"}
-    const newSound = new Audio("'"+penger+"'");
-    newSound.volume = 1.0;
-    newSound.play();
+    const newSound+(announcer) = new Audio("'"+penger+"'");
+    newSound+(announcer).volume = 1.0;
+    newSound+(announcer).play();
 }
 
 async function predict() {
@@ -127,25 +127,25 @@ function checkPose(prediction, video) {
 
         switch(poseNumber) {
             case '1':
-                if (time >= 8.6 && time <= 11.7 && !poseState.triggered) {
+                if (time >= 8.6 && time <= 12.3 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '2':
-                if (time >= 14.5 && time <= 16.5 && !poseState.triggered) {
+                if (time >= 13.5 && time <= 16.5 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '3':
-                if (time >= 16.0 && time <= 18.0 && !poseState.triggered) {
+                if (time >= 15.0 && time <= 19.0 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '4':
-                if (time >= 26.0 && time <= 28.4 && !poseState.triggered) {
+                if (time >= 25.0 && time <= 29.4 && !poseState.triggered) {
                     announcer++
                     triggerSound(poseState);
                 }
