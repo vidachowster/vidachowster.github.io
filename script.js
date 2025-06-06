@@ -11,7 +11,7 @@
 let URL = "https://teachablemachine.withgoogle.com/models/xUqxPnqAX/";
 
 let announcer = 0;
-
+let penger = 0 :
 
 let model, webcam, ctx, labelContainer, maxPredictions;
 
@@ -73,11 +73,12 @@ async function loop(timestamp) {
 }
 
 function playAnnouncerSound() {
-    if (announcer==1){const newSound = new Audio('dismal.mp3');}
-    else if (announcer==2){const newSound = new Audio('crazy.mp3');}
-    else if (announcer==3){const newSound = new Audio('badass.mp3');}
-    else if (announcer==4){const newSound = new Audio('apocalyptic.mp3');}
-    else if (announcer==5){const newSound = new Audio('savage.mp3');}
+    if (announcer==1){penger = 'dismal.mp3'}
+    else if (announcer==2){penger = "crazy.mp3"}
+    else if (announcer==3){penger = "badass.mp3"}
+    else if (announcer==4){penger = "apocalyptic.mp3"}
+    else if (announcer==5){penger = "savage.mp3"}
+    const newSound = new Audio("'"+penger+"'");
     newSound.volume = 1.0;
     newSound.play();
 }
