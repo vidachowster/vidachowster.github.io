@@ -18,11 +18,7 @@ let model, webcam, ctx, labelContainer, maxPredictions;
 // Dynamic pose tracking
 let poseStates = {};
 let soundActive = false;
-let Sound1 = new Audio('dismal.mp3');
-let Sound2 = new Audio('crazy.mp3');
-let Sound3 = new Audio('badass.mp3');
-let Sound4 = new Audio('apocalyptic.mp3');
-let Sound5 = new Audio('savage.mp3');
+let soundcrazy = new Audio('crazy.mp3');
 
 function setModelURL(url) {
     URL = url;
@@ -73,14 +69,9 @@ async function loop(timestamp) {
 }
 
 function playAnnouncerSound() {
-    if (announcer==1){penger = "dismal.mp3"}
-    else if (announcer==2){penger = "crazy.mp3"}
-    else if (announcer==3){penger = "badass.mp3"}
-    else if (announcer==4){penger = "apocalyptic.mp3"}
-    else if (announcer==5){penger = "savage.mp3"}
-    const newSound+(announcer) = new Audio("'"+penger+"'");
-    newSound+(announcer).volume = 1.0;
-    newSound+(announcer).play();
+    const newSound = new Audio('crazy.mp3');
+    newSound.volume = 1.0;
+    newSound.play();
 }
 
 async function predict() {
@@ -128,31 +119,26 @@ function checkPose(prediction, video) {
         switch(poseNumber) {
             case '1':
                 if (time >= 8.6 && time <= 12.3 && !poseState.triggered) {
-                    announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '2':
                 if (time >= 13.5 && time <= 16.5 && !poseState.triggered) {
-                    announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '3':
                 if (time >= 15.0 && time <= 19.0 && !poseState.triggered) {
-                    announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '4':
                 if (time >= 25.0 && time <= 29.4 && !poseState.triggered) {
-                    announcer++
                     triggerSound(poseState);
                 }
                 break;
             case '5':
                 if (time >= 30.0 && !poseState.triggered) {
-                    announcer++
                     triggerSound(poseState);
                 }
                 break;
