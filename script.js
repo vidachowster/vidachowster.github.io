@@ -11,7 +11,7 @@
 let URL = "https://teachablemachine.withgoogle.com/models/xUqxPnqAX/";
 
 let announcer = 0;
-let penger = 0 :
+let penger = 0 ;
 
 let model, webcam, ctx, labelContainer, maxPredictions;
 
