@@ -73,7 +73,7 @@ async function loop(timestamp) {
 }
 
 function playAnnouncerSound() {
-    if (announcer==1){penger = 'dismal.mp3'}
+    if (announcer==1){penger = "dismal.mp3"}
     else if (announcer==2){penger = "crazy.mp3"}
     else if (announcer==3){penger = "badass.mp3"}
     else if (announcer==4){penger = "apocalyptic.mp3"}
