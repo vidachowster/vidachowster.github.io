@@ -123,17 +123,17 @@ function checkPose(prediction, video) {
                 }
                 break;
             case '2':
-                if (time >= 16.5 && time <= 17.5 && !poseState.triggered) {
+                if (time >= 15.2 && time <= 16.5 && !poseState.triggered) {
                     triggerSound(poseState);
                 }
                 break;
             case '3':
-                if (time >= 16.7 && time <= 17.5 && !poseState.triggered) {
+                if (time >= 16.7 && time <= 17.8 && !poseState.triggered) {
                     triggerSound(poseState);
                 }
                 break;
             case '4':
-                if (time >= 18.0 && time <= 19.4 && !poseState.triggered) {
+                if (time >= 18.0 && time <= 20.0 && !poseState.triggered) {
                     triggerSound(poseState);
                 }
                 break;
